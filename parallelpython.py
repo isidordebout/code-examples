@@ -1,6 +1,8 @@
 from multiprocessing import Pool
 import multiprocessing
 from datetime import datetime
+import sys
+import os
 
 counter = 0
 def f(x):
@@ -23,6 +25,28 @@ def repeat(object, times=None):
     else:
         for i in xrange(times):
             yield object
+
+def stackoverflow(x):
+    stackoverflow(x)
+
+def crash(id) :
+    print "[", id, "] I, process ", os.getpid(), ", will crash" 
+    if id%2 == 0:
+        sys.exit()
+    elif id%3 == 0:
+        stackoverflow("this will overflow the stack")
+    else:
+        return 3/0 
+    return 2
+
+def crash_test():
+    pool = Pool(processes=4)
+    for i in range(10):
+        try:
+            result = pool.apply_async(crash, [i])    # evaluate asynchronously
+            result.get(timeout=10) 
+        except:
+            print "[", i, "] unexpected failure :", sys.exc_info()[0]
 
 if __name__ == '__main__':
     print multiprocessing.cpu_count()
