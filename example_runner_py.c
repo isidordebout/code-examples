@@ -1,4 +1,4 @@
-//http://sourceforge.net/p/pythonnet/code/147/tree/trunk/pythonnet/src/runtime/pythonengine.cs#l179
+https://docs.python.org/2/extending/embedding.html
 int
 main(int argc, char *argv[])
 {
