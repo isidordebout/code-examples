@@ -15,7 +15,7 @@ namespace Child
             {
                 var srz = new BinaryFormatter();
                 var dico = (Dictionary<string, string>)srz.Deserialize(Console.OpenStandardInput());
-                Console.WriteLine("Coucou");
+                srz.Serialize(Console.OpenStandardOutput(), 42.0);
             }
             catch(Exception e)
             {
