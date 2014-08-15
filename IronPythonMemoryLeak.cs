@@ -20,8 +20,8 @@ namespace PocIronPython
             while (true)
             {
                 var script = "import random; random.randint(1,10)";
-                Dictionary<String, Object> options = new Dictionary<string, object>();
-                options["LightweightScopes"] = true;
+                //Dictionary<String, Object> options = new Dictionary<string, object>();
+                //options["LightweightScopes"] = true;
 
                 var engine = Python.CreateEngine();
                 engine.SetSearchPaths(new[] { rootDir, "C:\\Program Files (x86)\\IronPython 2.7\\Lib" });
